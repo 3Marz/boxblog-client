@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background-color: #f4dfc8;
+}
+
+.bg-size-10 {
+	background-size: 8px 8px;
+}
+
+.button {
+  @apply border border-black p-1 duration-200 hover:shadow-[4px_4px_black];
+}
+
+.line-break {
+  word-break: break-all;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label:before {
+  content: '';
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  outline: 2px solid;
+  border-radius: 20px;
+}
+
+input[type="radio"]:checked + label:before {
+  background-color: black;
+  border: 2px solid #f4dfc8;
+}
