@@ -1,15 +1,16 @@
 import { useState, useRef, MouseEvent } from 'react';
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import FormData from 'form-data';
+import { toast } from 'react-toastify';
+import { FaCheckCircle } from 'react-icons/fa';
 
 
 const Write = () => {
 
 	const [loading, setLoading] = useState(false);
-	const [created, setCreated] = useState(false);
 
 	const inputField = useRef<HTMLInputElement>(null);
 
@@ -20,6 +21,8 @@ const Write = () => {
 	const [blogContent, setBlogContent] = useState('')
 	const [blogCategory, setBlogCategory] = useState('')
 
+	const navigate = useNavigate()
+
 	const handleCategory = (e: MouseEvent) => {
 		const target = e.target as HTMLLabelElement
 		const category = target.innerText;
@@ -29,6 +32,14 @@ const Write = () => {
 	const handlePublish = () => {
 		setError("");
 		setLoading(true);
+
+		const token = localStorage.getItem("JWT_USER_TOKEN");
+		if (!token) {
+			setError('Login to write blogs');
+			setLoading(false);
+			return false;
+		}
+
 		if (!blogTitle || !blogDesc || !blogCategory) {
 			setError("Complete every field!")
 			setLoading(false);
@@ -52,10 +63,20 @@ const Write = () => {
 		data.append('body', blogContent);
 		data.append('category', blogCategory);
 
-		axios.post('http://localhost:8080/blogs', data)
+		axios.post('http://localhost:8080/blogs', data, {
+			headers: {
+				Authorization: `Bearer ${token}`
+			},
+			withCredentials: true
+		})
 			.then((res) => {
-				console.log(res);
-				setCreated(true);
+				if (res.data.token) {
+					localStorage.setItem("JWT_USER_TOKEN", res.data.token);
+				}
+				toast("Blog Created Succesfuly", {
+					icon: <FaCheckCircle />,
+				})
+				navigate("/")
 			})
 			.catch((err) => {
 				setLoading(false);
@@ -68,7 +89,7 @@ const Write = () => {
 			{loading &&
 				<div className="bg-[#1d1d1d80] w-full h-[100dvh] top-0 fixed animate-pulse z-50"></div>
 			}
-			<div className="p-6 grid grid lg:grid-cols-[75%_25%] gap-3">
+			<div className="p-6 grid lg:grid-cols-[75%_25%] gap-3">
 				<div className="space-y-3 flex flex-col">
 					<input value={blogTitle} onChange={(e) => setBlogTitle(e.target.value)} className=" p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]" type="text" placeholder="Title" />
 					<textarea value={blogDesc} onChange={(e) => setBlogDesc(e.target.value)} placeholder="Description" name="description" className=" resize-none h-28 p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]"></textarea>
@@ -79,17 +100,16 @@ const Write = () => {
 
 				<div className="p-2 border border-black shadow-[4px_4px_black]">
 					<div className="flex flex-col">
-						<h1 className="text-3xl font-semibold">Publish</h1>
-						<span>Status: Draft</span>
-						<span>Visibility: Public</span>
+						<div className="flex justify-between items-center">
+							<h1 className="text-3xl font-semibold">Options:</h1>
+							<div className="flex gap-3 my-2">
+								<button className="border-2 border-black p-2 text-lg font-bold duration-200 hover:shadow-[4px_4px_black]" onClick={handlePublish}>Publish</button>
+							</div>
+						</div>
 						<hr className="border-black my-2" />
 						<form onSubmit={(e) => e.preventDefault()} encType="multipart/form-data">
-							<label className="text-lg font-bold" htmlFor="image">Upload cover image:</label>
-							<input ref={inputField} className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:p-2 file:border-0 file:text-sm file:not-italic italic file:bg-transparent file:border file:border-black file:text-black hover:file:underline" type="file" name="image" id="image" />
-							<div className="flex gap-3 my-2">
-								<button className="button">Save as a draft</button>
-								<button className="button" onClick={handlePublish}>Publish</button>
-							</div>
+							<label className="text-2xl font-bold" htmlFor="image">Upload cover image:</label>
+							<input ref={inputField} className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:p-2 file:border-0 file:text-sm file:not-italic italic file:bg-transparent file:border-black file:text-black hover:file:underline" type="file" name="image" id="image" accept="image/*"/>
 						</form>
 					</div>
 					<hr className="border-black my-2" />
@@ -122,12 +142,12 @@ const Write = () => {
 						</div>
 					</div>
 
+					<hr className="border-black my-2" />
 					<div>
 						<h1 className="text-red-500">{error}</h1>
 					</div>
 				</div>
 			</div>
-			{created && <Navigate to="/" />}
 		</>
 	)
 }

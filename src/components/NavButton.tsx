@@ -21,11 +21,10 @@ export default function NavButton(props : NavButtonProps) {
 	return (
 		<NavLink onMouseEnter={handleHover} onMouseLeave={handleHover} className={"bg-size-10 hover:bg-doted-bg flex justify-center place-items-center h-full px-2 mx-1 " + props.className} to={props.to}>
 			<span className="bg-beige-300 p-[2px]">{props.value}</span>
-			{hover ?
+			{hover &&
 				<div className="absolute top-12">
 					{props.children}
-				</div> :
-				<div></div>
+				</div> 
 			}
 		</NavLink>
 	)

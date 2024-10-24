@@ -1,27 +1,22 @@
-
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Post } from "../types"
 
 type CardPostProps = {
 	post: Post
+	className?: string
 }
 
-export default function CardPost({post}: CardPostProps) {
+export default function CardPost({ post, className }: CardPostProps) {
 
 	return (
-		<div className="border-2 border-black flex gap-3 max-w-full">
-			<Link to={`/post/${post.id}`}>
-				<img className="min-w-[300px] min-h-[300px] max-w-[300px] max-h-[300px] h-full object-cover" src={`http://localhost:8080/uploads/${post.image}`} alt="" />
-			</Link>
-			<div className="w-full p-2 flex flex-col">
-				<div className="">
-					<Link className="hover:underline text-3xl font-semibold" to={`/post/${post.id}`}>{post.title}</Link>
-					<p className="line-break">{post.desc}</p>
-				</div>	
-				<div className="p-2 flex-grow flex place-content-end place-items-end justify-items-center">
-					<Link to={`/post/${post.id}`} className="button">Read more</Link>
-				</div>
+		<Link to={`/post/${post.id}`} className={`ring-black flex flex-col hover:ring-1 ${className}`}>
+			<div className="aspect-video overflow-hidden bg-black border border-black flex place-items-center justify-center items-center">
+				<img className="w-full" src={`http://localhost:8080/uploads/${post.image}`} alt="" />
 			</div>
-		</div>
+			<div className="w-full p-2 flex flex-col">
+				<p title={post.title} className="hover:underline text-lg md:text-sm lg:text-lg font-semibold line-clamp-2">{post.title}</p>
+				<p className="text-xs line-clamp-2">{post.desc}</p>
+			</div>
+		</Link>
 	)
 }

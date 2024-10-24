@@ -1,5 +1,5 @@
 
-type Categorys = "Art" | "Science" | "Tech" | "Cinema" | "Design" | "Food"
+export type Categorys = "Art" | "Science" | "Tech" | "Cinema" | "Design" | "Food"
 
 export type Post = {
 	id: number
@@ -8,5 +8,6 @@ export type Post = {
 	image: string
 	body: string
 	category: Categorys
+	username: string
 }
 
