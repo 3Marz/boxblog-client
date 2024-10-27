@@ -12,6 +12,7 @@ import Signup from "./pages/Signup";
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import CategorizedBlogs from "./pages/CategorizedBlogs";
 
 const Layout = () => {
 	return (
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
 			{
 				path: "/write",
 				element: <Write />
+			},
+			{
+				path: "/blogs/:category",
+				element: <CategorizedBlogs />
 			}
 		]
 	},
