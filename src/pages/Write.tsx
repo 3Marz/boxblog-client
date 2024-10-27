@@ -1,5 +1,5 @@
 import { useState, useRef, MouseEvent } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
@@ -109,7 +109,7 @@ const Write = () => {
 						<hr className="border-black my-2" />
 						<form onSubmit={(e) => e.preventDefault()} encType="multipart/form-data">
 							<label className="text-2xl font-bold" htmlFor="image">Upload cover image:</label>
-							<input ref={inputField} className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:p-2 file:border-0 file:text-sm file:not-italic italic file:bg-transparent file:border-black file:text-black hover:file:underline" type="file" name="image" id="image" accept="image/*"/>
+							<input ref={inputField} className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:p-2 file:border-0 file:text-sm file:not-italic italic file:bg-transparent file:border-black file:text-black hover:file:underline" type="file" name="image" id="image" accept="image/*" />
 						</form>
 					</div>
 					<hr className="border-black my-2" />
@@ -142,7 +142,6 @@ const Write = () => {
 						</div>
 					</div>
 
-					<hr className="border-black my-2" />
 					<div>
 						<h1 className="text-red-500">{error}</h1>
 					</div>
