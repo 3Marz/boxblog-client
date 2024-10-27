@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { Post } from "../types"
 
 type HeaderPostProps = {
-	post: Post | undefined
+	post?: Post | undefined
 	className?: string
 }
 
