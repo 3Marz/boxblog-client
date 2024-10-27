@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import CardPost from '../components/CardPost';
 import { Post } from '../types';
 import axios from 'axios';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 type CategorysProps = {
 	categoryName: string
@@ -27,10 +29,14 @@ export default function Category({ categoryName }: CategorysProps) {
 	if(loading || posts == undefined) {
 		return<p>Loading...</p> 
 	}
+	
+	if(posts.length == 0) {
+		return
+	}
 
 	return (
-		<div>
-			<h2 className='font-bold text-2xl'>{categoryName}:</h2>
+		<div className='space-y-2'>
+			<Link to="#" className='italic flex items-center font-bold hover:underline text-2xl lg:text-3xl'>{categoryName}:<FaExternalLinkAlt className='mx-2 size-5 lg:size-6'/></Link>
 			<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
 				{posts.map((post, i) => {
 					return <CardPost className="limit" key={i} post={post} />
