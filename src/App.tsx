@@ -4,7 +4,6 @@ import {
 	Outlet
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
@@ -19,7 +18,6 @@ const Layout = () => {
 		<>
 			<Navbar />
 			<Outlet />
-			<Footer />
 		</>
 	)
 }
@@ -34,7 +32,7 @@ const router = createBrowserRouter([
 				element: <Home />
 			},
 			{
-				path: "/post/:id",
+				path: "/blog/:id",
 				element: <Single />
 			},
 			{

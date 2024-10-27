@@ -9,7 +9,7 @@ type CardPostProps = {
 export default function CardPost({ post, className }: CardPostProps) {
 
 	return (
-		<Link to={`/post/${post.id}`} className={`ring-black flex flex-col hover:ring-1 ${className}`}>
+		<Link to={`/blog/${post.id}`} className={`ring-black flex flex-col hover:ring-1 ${className}`}>
 			<div className="aspect-video overflow-hidden bg-black border border-black flex place-items-center justify-center items-center">
 				<img className="w-full" src={`http://localhost:8080/uploads/${post.image}`} alt="" />
 			</div>
