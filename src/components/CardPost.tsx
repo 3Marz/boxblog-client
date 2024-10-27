@@ -14,8 +14,8 @@ export default function CardPost({ post, className }: CardPostProps) {
 				<img className="w-full" src={`http://localhost:8080/uploads/${post.image}`} alt="" />
 			</div>
 			<div className="w-full p-2 flex flex-col">
-				<p title={post.title} className="hover:underline text-lg md:text-sm lg:text-lg font-semibold line-clamp-2">{post.title}</p>
-				<p className="text-xs line-clamp-2">{post.desc}</p>
+				<p title={post.title} className="hover:underline text-xs md:text-sm lg:text-lg font-semibold line-clamp-2">{post.title}</p>
+				<p className="text-xs line-clamp-2 font-thin">{post.desc}</p>
 			</div>
 		</Link>
 	)

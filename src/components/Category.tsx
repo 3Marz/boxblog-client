@@ -25,15 +25,15 @@ export default function Category({ categoryName }: CategorysProps) {
 	}, [])
 
 	if(loading || posts == undefined) {
-		return <div className="bg-[#1d1d1d80] w-full h-full top-0 fixed animate-pulse z-50"></div>
+		return<p>Loading...</p> 
 	}
 
 	return (
-		<div className='text-2xl font-bold'>
-			<h2>{categoryName}:</h2>
-			<div>
+		<div>
+			<h2 className='font-bold text-2xl'>{categoryName}:</h2>
+			<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
 				{posts.map((post, i) => {
-					return <CardPost key={i} post={post} />
+					return <CardPost className="limit" key={i} post={post} />
 				})}
 			</div>
 		</div>
