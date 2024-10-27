@@ -32,8 +32,8 @@ const Home = () => {
 	}
 
 	return (
-		<div className="space-y-3 px-6 md:px-[15vw] py-6 gap-4">
-			<h1 className='italic flex items-center font-bold text-2xl lg:text-3xl'>Random Post Of The Day:</h1>
+		<div className="space-y-3 px-6 md:px-[15vw] py-6">
+			<h1 className='italic flex items-center font-bold text-xl md:text-2xl lg:text-3xl'>Random Post Of The Day:</h1>
 			<HeaderPost post={randPost} />
 			{categorys.map((name, i) => {
 				return <Category key={i} categoryName={name} />
