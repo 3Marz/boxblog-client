@@ -36,7 +36,7 @@ export default function Category({ categoryName }: CategorysProps) {
 
 	return (
 		<div className='space-y-2'>
-			<Link to={`/blogs/${categoryName}`} className='italic flex items-center font-bold hover:underline text-2xl lg:text-3xl'>{categoryName}:<FaExternalLinkAlt className='mx-2 size-5 lg:size-6'/></Link>
+			<Link to={`/blogs/${categoryName}`} className='italic w-fit flex items-center font-bold hover:underline text-2xl lg:text-3xl'>{categoryName}:<FaExternalLinkAlt className='mx-2 size-5 lg:size-6'/></Link>
 			<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
 				{posts.map((post, i) => {
 					return <CardPost className="limit" key={i} post={post} />

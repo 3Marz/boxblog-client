@@ -20,8 +20,8 @@ const Navbar = () => {
 			<div className="flex-grow ml-2">
 				<NavLink className="font-bold text-2xl" to="/">[BoxBlog]</NavLink>
 			</div>
-			<NavButton className="" to="#" value="Category">
-				<ul className="flex flex-col z-10 bg-beige-100 p-2 border-black border">
+			<NavButton className="z-10" to="#" value="Category">
+				<ul className="flex flex-col bg-beige-100 p-2 border-black border">
 					<Link className="hover:border-black hover:italic border-transparent border-b" to="/?cat=art">Art</Link>
 					<Link className="hover:border-black hover:italic border-transparent border-b" to="/?cat=science">Science</Link>
 					<Link className="hover:border-black hover:italic border-transparent border-b" to="/?cat=tech">Tech</Link>
