@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser'
@@ -13,11 +13,14 @@ const Single = () => {
 	const user = useContext(UserContext)
 
 	const [post, setPost] = useState<Post>()
+	const [error, setError] = useState("")
+	const [loading, setLoading] = useState(false)
 	const [timeSince, setTimeSince] = useState("")
 
 	const navigate = useNavigate()
 
 	useEffect(() => {
+		setLoading(true)
 		if (id != undefined) {
 			axios.get(`http://localhost:8080/blogs/${id}`)
 				.then((res) => {
@@ -27,9 +30,11 @@ const Single = () => {
 				})
 				.catch((err) => {
 					console.error(err);
+					setError(err.response.data.error)
+					setLoading(false)
 				})
 		}
-
+		setLoading(false)
 	}, [])
 
 	function handleDelete() {
@@ -53,6 +58,14 @@ const Single = () => {
 			})
 	}
 
+	if(error) {
+		return <div className="px-6 md:px-[15vw] py-6 space-y-3 flex justify-center text-xl text-red-700">{error}</div>
+	}
+
+	if (loading) {
+		return <div className="bg-[#1d1d1d80] w-full h-full absolute animate-pulse z-50"></div>
+	}
+
 	return (
 		<div className="py-6 flex flex-col items-center">
 			<div className="w-[95%] md:w-[45rem] space-y-8">
@@ -63,7 +76,7 @@ const Single = () => {
 
 					<div className="gap-2 flex place-items-end">
 						<div className="flex flex-col">
-							<span className="text-2xl">{post?.username}</span>
+							<NavLink to={`/user/${post?.username}`} className="text-2xl hover:underline">{post?.username}</NavLink>
 							<span>Posted At {timeSince}</span>
 						</div>
 
@@ -74,7 +87,7 @@ const Single = () => {
 					</div>
 
 					<div className="flex items-center justify-center bg-black border border-black overflow-hidden aspect-video object-cover">
-						<img
+						<img className='w-full'
 							src={`http://localhost:8080/uploads/${post?.image}`}
 						/>
 					</div>
