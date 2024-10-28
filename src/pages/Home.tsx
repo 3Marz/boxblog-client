@@ -3,6 +3,7 @@ import axios from 'axios';
 import HeaderPost from '../components/HeaderPost';
 import { Categorys, Post } from '../types';
 import Category from '../components/Category';
+import CardPost from '../components/CardPost';
 
 const Home = () => {
 
@@ -34,7 +35,7 @@ const Home = () => {
 	return (
 		<div className="space-y-3 px-6 md:px-[15vw] py-6">
 			<h1 className='italic flex items-center font-bold text-xl md:text-2xl lg:text-3xl'>Random Post Of The Day:</h1>
-			<HeaderPost post={randPost} />
+			<CardPost post={randPost} bodyClassName='xl:flex-row' />
 			{categorys.map((name, i) => {
 				return <Category key={i} categoryName={name} />
 			})}

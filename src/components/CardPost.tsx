@@ -4,18 +4,21 @@ import { Post } from "../types"
 type CardPostProps = {
 	post: Post
 	className?: string
+	bodyClassName?: string
 }
 
-export default function CardPost({ post, className }: CardPostProps) {
+export default function CardPost({ post, className, bodyClassName }: CardPostProps) {
 
 	return (
-		<Link to={`/blog/${post.id}`} className={`ring-black flex flex-col hover:ring-1 ${className}`}>
-			<div className="aspect-video overflow-hidden bg-black border border-black flex place-items-center justify-center items-center">
-				<img className="w-full" src={`http://localhost:8080/uploads/${post.image}`} alt="" />
-			</div>
-			<div className="w-full p-2 flex flex-col">
-				<p title={post.title} className="hover:underline text-xs md:text-sm lg:text-lg font-semibold line-clamp-2">{post.title}</p>
-				<p className="text-xs line-clamp-2 font-thin">{post.desc}</p>
+		<Link to={`/blog/${post.id}`} className={`group flex flex-col relative before:absolute before:inset-0 before:bg-doted-bg before:bg-[length:4px_4px] before:bg-beige-400 before:-z-10 ${className}`}>
+			<div className={`flex flex-col h-full bg-beige-300 group-hover:translate-x-[-8px] duration-75 group-hover:translate-y-[-8px] ring-black ring-1 ${bodyClassName}`}>
+				<div className="aspect-video w-full overflow-hidden bg-black border-b border-black flex place-items-center justify-center items-center">
+					<img className="w-full" src={`http://localhost:8080/uploads/${post.image}`} alt="" />
+				</div>
+				<div className="w-full p-2 flex flex-col">
+					<p title={post.title} className="hover:underline text-xs md:text-sm lg:text-lg font-semibold line-clamp-2">{post.title}</p>
+					<p className="text-xs line-clamp-2 font-thin">{post.desc}</p>
+				</div>
 			</div>
 		</Link>
 	)

@@ -13,7 +13,9 @@ export default {
 				"beige": {
 					100: "#faf6f0",
 					200: "#f4eae0",
-					300: "#f4dfc8"
+					300: "#f4dfc8",
+					400: "#dcc9b4",
+					500: "#c3b2a0"
 				},
 			}
 		},
