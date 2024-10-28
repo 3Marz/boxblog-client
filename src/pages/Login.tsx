@@ -1,11 +1,14 @@
 import { NavLink, useNavigate } from "react-router-dom"
-import { FormEvent, useState } from "react"
+import { FormEvent, useContext, useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
 import { FaCheckCircle } from "react-icons/fa"
 import { EyeIcon } from "../components/EyeIcon"
+import { UserContext } from "../App"
 
 const Login = () => {
+
+	const user = useContext(UserContext)
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -30,6 +33,7 @@ const Login = () => {
 						icon: <FaCheckCircle />,
 					})
 					localStorage.setItem("JWT_USER_TOKEN", res.data.token);
+					user?.setUserId(res.data.userId)
 					navigate("/")
 				}
 			})

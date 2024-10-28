@@ -1,16 +1,16 @@
 import { NavLink, Link } from 'react-router-dom'
 import NavButton from './NavButton.jsx'
-import { useEffect, useState } from 'react'
-import { useCookies } from 'react-cookie'
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from '../App.js'
 
 const Navbar = () => {
 
+	const user = useContext(UserContext);
+
 	const [isLogged, setIsLogged] = useState(false)
 
-	const [refreshToken, setRefreshToken] = useCookies(['refreshToken'])
-
 	useEffect(() => {
-		if (refreshToken) {
+		if (user?.userId) {
 			setIsLogged(true)
 		}
 	})
