@@ -9,5 +9,6 @@ export type Post = {
 	body: string
 	category: Categorys
 	username: string
+	userId: number
 }
 

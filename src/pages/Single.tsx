@@ -1,12 +1,14 @@
 import { Link, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser'
 import { Post } from '../types';
+import { UserContext } from '../App';
 
 const Single = () => {
 
 	const { id } = useParams();
+	const user = useContext(UserContext)
 
 	const [post, setPost] = useState<Post>()
 	const [timeSince, setTimeSince] = useState("")
@@ -42,11 +44,11 @@ const Single = () => {
 
 						<div className="ml-auto text-2xl space-x-3 *:underline">
 							{/*<Link className="hover:italic" to="/write?edit=2">Edit</Link>*/}
-							<Link className="hover:italic" to="/">Delete</Link>
+							{post?.userId == user?.userId && <Link className="hover:italic" to="/">Delete</Link>}
 						</div>
 					</div>
 
-					<div className="border border-black overflow-hidden aspect-video object-cover">
+					<div className="flex items-center justify-center bg-black border border-black overflow-hidden aspect-video object-cover">
 						<img
 							src={`http://localhost:8080/uploads/${post?.image}`}
 						/>
