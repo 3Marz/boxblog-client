@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import CategorizedBlogs from "./pages/CategorizedBlogs";
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import UserProfile from "./pages/UserProfile";
 
 const Layout = () => {
 	return (
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
 			{
 				path: "/blogs/:category",
 				element: <CategorizedBlogs />
+			},
+			{
+				path: "/user/:username",
+				element: <UserProfile />
 			}
 		]
 	},

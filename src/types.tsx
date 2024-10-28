@@ -12,3 +12,10 @@ export type Post = {
 	userId: number
 }
 
+export type User = {
+	id: number
+	username: string
+	createdAt: string
+	email: string
+}
+
