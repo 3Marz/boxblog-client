@@ -1,9 +1,11 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser'
 import { Post } from '../types';
 import { UserContext } from '../App';
+import { toast } from 'react-toastify';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const Single = () => {
 
@@ -12,6 +14,8 @@ const Single = () => {
 
 	const [post, setPost] = useState<Post>()
 	const [timeSince, setTimeSince] = useState("")
+
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		if (id != undefined) {
@@ -27,6 +31,27 @@ const Single = () => {
 		}
 
 	}, [])
+
+	function handleDelete() {
+		const token = localStorage.getItem("JWT_USER_TOKEN");
+		axios.delete(`http://localhost:8080/blogs/${id}`, {
+			headers: {
+				Authorization: `Bearer ${token}`
+			},
+			withCredentials: true
+		})
+			.then((res) => {
+				if (res.status == 200) {
+					toast(res.data.message, {
+						icon: <FaCheckCircle />,
+					})
+					navigate("/")
+				}
+			})
+			.catch((err) => {
+				console.error(err)
+			})
+	}
 
 	return (
 		<div className="py-6 flex flex-col items-center">
@@ -44,7 +69,7 @@ const Single = () => {
 
 						<div className="ml-auto text-2xl space-x-3 *:underline">
 							{/*<Link className="hover:italic" to="/write?edit=2">Edit</Link>*/}
-							{post?.userId == user?.userId && <Link className="hover:italic" to="/">Delete</Link>}
+							{post?.userId == user?.userId && <button className="hover:italic" onClick={handleDelete}>Delete</button>}
 						</div>
 					</div>
 
