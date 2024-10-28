@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import HeaderPost from '../components/HeaderPost';
 import { Categorys, Post } from '../types';
 import Category from '../components/Category';
 import CardPost from '../components/CardPost';
@@ -27,7 +26,7 @@ const Home = () => {
 	if (loading || randPost == undefined) {
 		return (
 			<div className="animate-pulse px-6 md:px-[15vw] py-6 gap-4">
-				<HeaderPost className="col-span-1 md:col-span-2 xl:col-span-3 mb-3"/>
+				<CardPost className="col-span-1 md:col-span-2 xl:col-span-3 mb-3"/>
 			</div>
 		)
 	}
