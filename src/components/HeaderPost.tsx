@@ -9,7 +9,7 @@ type HeaderPostProps = {
 export default function HeaderPost({ post, className }: HeaderPostProps) {
 
 	return (
-		<Link to={`/post/${post?.id}`} className={`ring-black flex flex-col xl:flex-row hover:ring-1 ${className}`}>
+		<Link to={`/blog/${post?.id}`} className={`ring-black flex flex-col xl:flex-row hover:ring-1 ${className}`}>
 			<div className="aspect-video w-full overflow-hidden bg-black border border-black flex place-items-center justify-center items-center">
 				<img className="w-full" src={`http://localhost:8080/uploads/${post?.image}`} alt="" />
 			</div>
