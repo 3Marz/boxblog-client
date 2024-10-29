@@ -16,6 +16,7 @@ import CategorizedBlogs from "./pages/CategorizedBlogs";
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import UserProfile from "./pages/UserProfile";
+import Logout from "./pages/Logout";
 
 const Layout = () => {
 	return (
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
 	{
 		path: "/signup",
 		element: <Signup />
+	},
+	{
+		path: "/logout",
+		element: <Logout />
 	}
 ]);
 
@@ -75,6 +80,9 @@ function App() {
 
 	useEffect(() => {
 		const token = localStorage.getItem("JWT_USER_TOKEN");
+		if(!token) {
+			return
+		}
 		axios.post('http://localhost:8080/users/isSigned', undefined, {
 			headers: {
 				Authorization: `Bearer ${token}`

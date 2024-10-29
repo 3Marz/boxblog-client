@@ -16,6 +16,7 @@ const Navbar = () => {
 
 	useEffect(() => {
 		if (user?.userId) {
+			console.log(user.userId)
 			axios.get(`http://localhost:8080/users/id/${user.userId}`)
 				.then((res) => {
 					setUsername(res.data.username)
@@ -41,7 +42,10 @@ const Navbar = () => {
 							<NavButton value="Login" to="/login" />
 						</>
 						:
-						<NavButton value={username} to={`/user/${username}`} />
+						<>
+							<NavButton value={username} to={`/user/${username}`} />
+							<NavButton value="Logout" to="/logout" />
+						</>
 				}
 				<button className='group z-20 relative active:bg-doted-bg hover:bg-doted-bg bg-size-10 h-full mx-1 px-2 flex justify-center items-center'>
 					<span className='bg-beige-300'>Category</span>
