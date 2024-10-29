@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import NavButton from './NavButton.jsx'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../App.js'
@@ -25,7 +25,7 @@ const Navbar = () => {
 	})
 
 	return (
-		<nav className="h-14 z-30 flex place-items-center relative justify-between border-b-2 border-black">
+		<nav className="h-14 z-30 flex place-items-center sticky top-0 bg-beige-300 justify-between border-b-2 border-black">
 			<div className="ml-2">
 				<NavLink className="font-bold text-2xl" to="/">[BoxBlog]</NavLink>
 			</div>
@@ -45,7 +45,7 @@ const Navbar = () => {
 				}
 				<button className='group z-20 relative active:bg-doted-bg hover:bg-doted-bg bg-size-10 h-full mx-1 px-2 flex justify-center items-center'>
 					<span className='bg-beige-300'>Category</span>
-					<ul className="hidden group-hover:flex group-focus:flex absolute sm:top-12 top-0 right-28 sm:right-auto flex-col bg-beige-100 p-2 border-black border">
+					<ul className="hidden text-left group-hover:flex group-focus:flex absolute sm:top-12 top-0 right-28 sm:right-auto flex-col bg-beige-100 p-2 border-black border">
 						<NavLink className="hover:border-black hover:italic border-transparent border-b" to="/blogs/Art">Art</NavLink>
 						<NavLink className="hover:border-black hover:italic border-transparent border-b" to="/blogs/Science">Science</NavLink>
 						<NavLink className="hover:border-black hover:italic border-transparent border-b" to="/blogs/Tech">Tech</NavLink>
