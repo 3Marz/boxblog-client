@@ -62,7 +62,7 @@ const Single = () => {
 		return <div className="px-6 md:px-[15vw] py-6 space-y-3 flex justify-center text-xl text-red-700">{error}</div>
 	}
 
-	if (loading) {
+	if (loading || !post) {
 		return <div className="bg-[#1d1d1d80] w-full h-full absolute animate-pulse z-50"></div>
 	}
 
