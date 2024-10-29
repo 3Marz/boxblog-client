@@ -21,7 +21,7 @@ export default function CategorizedBlogs() {
 				setLoading(false)
 			})
 		setLoading(false)
-	}, [])
+	}, [category])
 
 	if (loading) {
 		return <div className="bg-[#1d1d1d80] w-full h-[100dvh] top-0 fixed animate-pulse z-50"></div>
@@ -30,6 +30,7 @@ export default function CategorizedBlogs() {
 	return (
 		<div className="px-6 md:px-[15vw] py-6 space-y-3">
 			<h1 className="text-2xl md:text-3xl font-bold">{category} Blogs:</h1>
+			<hr className="border-black border-dashed border-2" />
 			<div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
 				{posts.map((post, i) => {
 					return <CardPost key={i} post={post} />
