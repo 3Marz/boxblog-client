@@ -12,7 +12,6 @@ export default function Logout() {
 
 	useEffect(() => {
 		localStorage.clear();
-		console.log(localStorage.getItem("JWT_USER_TOKEN"))
 		user?.setUserId(null)
 		toast("Logged Out Succesfuly", {
 			icon: <FaCheckCircle />,

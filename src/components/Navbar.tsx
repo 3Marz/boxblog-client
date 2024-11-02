@@ -17,7 +17,6 @@ const Navbar = () => {
 
 	useEffect(() => {
 		if (user?.userId) {
-			console.log(user.userId)
 			axios.get(`${baseUrl}/users/id/${user.userId}`)
 				.then((res) => {
 					setUsername(res.data.username)
