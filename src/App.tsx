@@ -17,6 +17,7 @@ import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import UserProfile from "./pages/UserProfile";
 import Logout from "./pages/Logout";
+import { baseUrl } from "./config";
 
 const Layout = () => {
 	return (
@@ -83,7 +84,7 @@ function App() {
 		if(!token) {
 			return
 		}
-		axios.post('http://localhost:8080/users/isSigned', undefined, {
+		axios.post(`${baseUrl}/users/isSigned`, undefined, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			},

@@ -5,6 +5,7 @@ import { UserContext } from '../App.js'
 import axios from 'axios'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoClose } from 'react-icons/io5'
+import { baseUrl } from '../config.js'
 
 const Navbar = () => {
 
@@ -17,7 +18,7 @@ const Navbar = () => {
 	useEffect(() => {
 		if (user?.userId) {
 			console.log(user.userId)
-			axios.get(`http://localhost:8080/users/id/${user.userId}`)
+			axios.get(`${baseUrl}/users/id/${user.userId}`)
 				.then((res) => {
 					setUsername(res.data.username)
 				})

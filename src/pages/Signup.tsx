@@ -4,6 +4,7 @@ import { FaCheckCircle } from "react-icons/fa"
 import { NavLink, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { EyeIcon } from "../components/EyeIcon"
+import { baseUrl } from "../config"
 
 const Signup = () => {
 
@@ -20,7 +21,7 @@ const Signup = () => {
 	const handleSignup = (e: FormEvent) => {
 		setLoading(true)
 		e.preventDefault()
-		axios.post("http://localhost:8080/users/signup", {
+		axios.post(`${baseUrl}/users/signup`, {
 			username,
 			email,
 			password

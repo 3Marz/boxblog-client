@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { Post } from "../types"
 import { useParams } from "react-router-dom";
 import CardPost from "../components/CardPost";
+import { baseUrl } from "../config";
 
 export default function CategorizedBlogs() {
 
@@ -12,7 +13,7 @@ export default function CategorizedBlogs() {
 	const [posts, setPosts] = useState<Post[]>([])
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/blogs?cat=${category}`)
+		axios.get(`${baseUrl}/blogs?cat=${category}`)
 			.then((res) => {
 				setPosts(res.data.data)
 			})

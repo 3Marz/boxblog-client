@@ -6,6 +6,7 @@ import { Post } from '../types';
 import { UserContext } from '../App';
 import { toast } from 'react-toastify';
 import { FaCheckCircle } from 'react-icons/fa';
+import { baseUrl } from '../config';
 
 const Single = () => {
 
@@ -22,7 +23,7 @@ const Single = () => {
 	useEffect(() => {
 		setLoading(true)
 		if (id != undefined) {
-			axios.get(`http://localhost:8080/blogs/${id}`)
+			axios.get(`${baseUrl}/blogs/${id}`)
 				.then((res) => {
 					setPost(res.data);
 					//get and format the date
@@ -39,7 +40,7 @@ const Single = () => {
 
 	function handleDelete() {
 		const token = localStorage.getItem("JWT_USER_TOKEN");
-		axios.delete(`http://localhost:8080/blogs/${id}`, {
+		axios.delete(`${baseUrl}/blogs/${id}`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			},
@@ -88,7 +89,7 @@ const Single = () => {
 
 					<div className="flex items-center justify-center bg-black border border-black overflow-hidden aspect-video object-cover">
 						<img className='w-full'
-							src={`http://localhost:8080/uploads/${post?.image}`}
+							src={`${baseUrl}/uploads/${post?.image}`}
 						/>
 					</div>
 				</div>

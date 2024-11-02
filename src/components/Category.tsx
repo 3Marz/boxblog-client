@@ -4,6 +4,7 @@ import { Post } from '../types';
 import axios from 'axios';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../config';
 
 type CategorysProps = {
 	categoryName: string
@@ -15,7 +16,7 @@ export default function Category({ categoryName }: CategorysProps) {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/blogs?cat=${categoryName}&limit=3`)
+		axios.get(`${baseUrl}/blogs?cat=${categoryName}&limit=3`)
 			.then((res) => {
 				setPosts(res.data.data)
 			})

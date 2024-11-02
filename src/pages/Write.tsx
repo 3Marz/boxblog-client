@@ -6,6 +6,7 @@ import axios from 'axios';
 import FormData from 'form-data';
 import { toast } from 'react-toastify';
 import { FaCheckCircle } from 'react-icons/fa';
+import { baseUrl } from '../config';
 
 
 const Write = () => {
@@ -63,7 +64,7 @@ const Write = () => {
 		data.append('body', blogContent);
 		data.append('category', blogCategory);
 
-		axios.post('http://localhost:8080/blogs', data, {
+		axios.post(`${baseUrl}/blogs`, data, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			},

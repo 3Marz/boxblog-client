@@ -5,6 +5,7 @@ import { toast } from "react-toastify"
 import { FaCheckCircle } from "react-icons/fa"
 import { EyeIcon } from "../components/EyeIcon"
 import { UserContext } from "../App"
+import { baseUrl } from "../config"
 
 const Login = () => {
 
@@ -23,7 +24,7 @@ const Login = () => {
 	function handleLogin(e: FormEvent) {
 		e.preventDefault()
 		setLoading(true)
-		axios.post("http://localhost:8080/users/login", {
+		axios.post(`${baseUrl}/users/login`, {
 			email,
 			password
 		}, {withCredentials: true})

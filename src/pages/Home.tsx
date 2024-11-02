@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Categorys, Post } from '../types';
 import Category from '../components/Category';
 import CardPost from '../components/CardPost';
+import { baseUrl } from '../config';
 
 const Home = () => {
 
@@ -12,7 +13,7 @@ const Home = () => {
 	const categorys: Categorys[] = ["Art", "Tech", "Food", "Cinema", "Design", "Science"]
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/blogs/random`)
+		axios.get(`${baseUrl}/blogs/random`)
 			.then((res) => {
 				setRandPost(res.data)
 			})

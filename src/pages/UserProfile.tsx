@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { Post, User } from "../types"
 import { useParams } from "react-router-dom";
 import CardPost from "../components/CardPost";
+import { baseUrl } from "../config";
 
 export default function UserProfile() {
 
@@ -15,10 +16,10 @@ export default function UserProfile() {
 
 	useEffect(() => {
 		setLoading(true)
-		axios.get(`http://localhost:8080/users/${username}`)
+		axios.get(`${baseUrl}/users/${username}`)
 			.then((res) => {
 				setUser(res.data)
-				axios.get(`http://localhost:8080/blogs/u/${res.data.id}`)
+				axios.get(`${baseUrl}/blogs/u/${res.data.id}`)
 					.then((nextRes) => {
 						setPosts(nextRes.data.data)
 					})
