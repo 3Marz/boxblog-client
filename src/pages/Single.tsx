@@ -39,6 +39,7 @@ const Single = () => {
 	}, [])
 
 	function handleDelete() {
+		setLoading(true)
 		const token = localStorage.getItem("JWT_USER_TOKEN");
 		axios.delete(`${baseUrl}/blogs/${id}`, {
 			headers: {
@@ -56,6 +57,7 @@ const Single = () => {
 			})
 			.catch((err) => {
 				console.error(err)
+				setLoading(false)
 			})
 	}
 
@@ -89,7 +91,7 @@ const Single = () => {
 
 					<div className="flex items-center justify-center bg-black border border-black overflow-hidden aspect-video object-cover">
 						<img className='w-full'
-							src={`${baseUrl}/uploads/${post?.image}`}
+							src={`${baseUrl}/images/${post?.image}`}
 						/>
 					</div>
 				</div>
