@@ -7,12 +7,13 @@ type NavButtonProps = {
 	to: string
 	value: string
 	children?: ReactNode
+	onClick?: () => void
 }
 
 export default function NavButton(props : NavButtonProps) {
 
 	return (
-		<NavLink 
+		<NavLink onClick={props.onClick}
 			className={"bg-size-10 hover:bg-doted-bg active:bg-doted-bg flex justify-center place-items-center h-full " + props.className} to={props.to}>
 			<span className="bg-beige-300">{props.value}</span>
 		</NavLink>
