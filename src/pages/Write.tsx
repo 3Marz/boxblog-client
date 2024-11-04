@@ -85,21 +85,42 @@ const Write = () => {
 			})
 	}
 
+	//Quill Variables
+	const modules = {
+		toolbar: [
+			[{ 'header': [1, 2, false] }],
+			['bold', 'italic', 'underline', 'strike', 'blockquote'],
+			[{ 'list': 'ordered' }, { 'list': 'bullet' }],
+			['code-block', 'link'],
+			['clean']
+		],
+	}
+
+	const formats = [
+		'header',
+		'bold', 'italic', 'underline', 'strike', 'blockquote',
+		'list', 'bullet', 
+		'code-block', 'link'
+	]
+
 	return (
 		<>
 			{loading &&
 				<div className="bg-[#1d1d1d80] w-full h-[100dvh] top-0 fixed animate-pulse z-50"></div>
 			}
-			<div className="p-6 grid lg:grid-cols-[75%_25%] gap-3">
+			<div className="p-6 flex flex-col px-6 lg:px-[20vw] gap-3">
 				<div className="space-y-3 flex flex-col">
-					<input value={blogTitle} onChange={(e) => setBlogTitle(e.target.value)} className=" p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]" type="text" placeholder="Title" />
-					<textarea value={blogDesc} onChange={(e) => setBlogDesc(e.target.value)} placeholder="Description" name="description" className=" resize-none h-28 p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]"></textarea>
-					<div className="h-[450px] border-black border bg-beige-100 shadow-[4px_4px_black]">
-						<ReactQuill className="border-none h-[90%]" theme='snow' value={blogContent} onChange={setBlogContent} />
+					<h1 className="text-xl md:text-3xl font-semibold">Title:</h1>
+					<span contentEditable onInput={(e) => setBlogTitle(e.currentTarget.innerText)} className="p-1 bg-beige-100 h-auto resize-none focus:outline-none border border-black shadow-[4px_4px_black] md:text-xl md:p-3" />
+					<h1 className="text-xl md:text-3xl font-semibold">Description:</h1>
+					<span contentEditable onInput={(e) => setBlogDesc(e.currentTarget.innerText)} className="p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]"></span>
+					<h1 className="text-xl md:text-3xl font-semibold">Blog:</h1>
+					<div className="border-black border bg-beige-100 shadow-[4px_4px_black]">
+						<ReactQuill formats={formats} modules={modules} className="border-none" theme='snow' value={blogContent} onChange={setBlogContent} />
 					</div>
 				</div>
 
-				<div className="p-2 border border-black shadow-[4px_4px_black]">
+				<div className="p-2 border border-black shadow-[4px_4px_black] max-h-fit">
 					<div className="flex flex-col">
 						<div className="flex justify-between items-center">
 							<h1 className="text-3xl font-semibold">Options:</h1>

@@ -74,7 +74,7 @@ const Single = () => {
 			<div className="w-[95%] md:w-[45rem] space-y-8">
 				<div className="space-y-4">
 
-					<h1 className="text-4xl md:text-5xl font-semibold">{post?.title}</h1>
+					<h1 className="text-4xl break-words md:text-5xl font-semibold">{post?.title}</h1>
 					<hr className="border-black border-dashed" />
 
 					<div className="gap-2 flex place-items-end">
@@ -98,8 +98,10 @@ const Single = () => {
 
 
 				<div className="space-y-3">
-					<div className="prose prose-sm text-black marker:text-black prose-headings:my-2 
-									prose-p:my-2 prose-li:my-1 md:prose-base prose-a:text-blue-700">
+					<div className="max-w-none prose prose-sm text-black marker:text-black prose-headings:my-2 
+									prose-p:my-2 prose-li:my-1 md:prose-base prose-a:text-blue-700
+									prose-li:ml-8 prose-pre:bg-zinc-800
+									prose-blockquote:border-gray-600">
 						{post && parse(post?.body)}
 					</div>
 				</div>
