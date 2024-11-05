@@ -75,7 +75,7 @@ const Single = () => {
 				<div className="space-y-4">
 
 					<h1 className="text-4xl break-words md:text-5xl font-semibold">{post?.title}</h1>
-					<hr className="border-black border-dashed" />
+					<hr className="border-border-color border-dashed" />
 
 					<div className="gap-2 flex place-items-end">
 						<div className="flex flex-col">
@@ -89,7 +89,7 @@ const Single = () => {
 						</div>
 					</div>
 
-					<div className="rounded-lg flex items-center justify-center bg-black border border-black overflow-hidden aspect-video object-cover">
+					<div className="rounded-lg flex items-center justify-center bg-black border border-border-color overflow-hidden aspect-video object-cover">
 						<img className='w-full'
 							src={`${baseUrl}/images/${post?.image}`}
 						/>
@@ -98,7 +98,7 @@ const Single = () => {
 
 
 				<div className="space-y-3">
-					<div className="max-w-none prose prose-sm text-black marker:text-black prose-headings:my-2 
+					<div className="max-w-none prose prose-sm *:text-text-color prose-headings:my-2 prose-em:text-text-color prose-strong:text-text-color 
 									prose-p:my-2 prose-li:my-1 md:prose-base prose-a:text-blue-700
 									prose-li:ml-8 prose-pre:bg-zinc-800
 									prose-blockquote:border-gray-600">

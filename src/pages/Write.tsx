@@ -115,7 +115,7 @@ const Write = () => {
 					<h1 className="text-xl md:text-3xl font-semibold">Description:</h1>
 					<span contentEditable onInput={(e) => setBlogDesc(e.currentTarget.innerText)} className="rounded p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]"></span>
 					<h1 className="text-xl md:text-3xl font-semibold">Blog:</h1>
-					<div className="border-black border bg-beige-100 shadow-[4px_4px_black] rounded overflow-hidden">
+					<div className="border-black border bg-beige-100 shadow-[4px_4px_black] rounded">
 						<ReactQuill formats={formats} modules={modules} className="border-none" theme='snow' value={blogContent} onChange={setBlogContent} />
 					</div>
 				</div>
