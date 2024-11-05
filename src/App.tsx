@@ -1,5 +1,5 @@
 import {
-	createBrowserRouter,
+	createHashRouter,
 	RouterProvider,
 	Outlet
 } from "react-router-dom";
@@ -28,7 +28,7 @@ const Layout = () => {
 	)
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: "/",
 		element: <Layout />,
