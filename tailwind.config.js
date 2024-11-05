@@ -12,12 +12,14 @@ export default {
 			},
 			colors: {
 				"beige": {
-					100: "#faf6f0",
-					200: "#f4eae0",
-					300: "#f4dfc8",
-					400: "#dcc9b4",
-					500: "#c3b2a0"
+					100: "var(--beige-100)",
+					200: "var(--beige-200)",
+					300: "var(--beige-300)",
+					400: "var(--beige-400)",
+					500: "var(--beige-500)",
 				},
+				"border-color": "var(--border-color)",
+				"text-color": "var(--text-color)"
 			}
 		},
 	},
