@@ -104,7 +104,7 @@ function App() {
 				<ToastContainer
 					position="top-center"
 					hideProgressBar
-					toastClassName="bg-beige-100 text-black rounded-none ring-2 ring-black shadow-[4px_4px_black]"
+					toastClassName="bg-beige-100 font-mono text-black rounded-none ring-2 ring-black shadow-[4px_4px_black]"
 				/>
 				<RouterProvider router={router} />
 			</div>
