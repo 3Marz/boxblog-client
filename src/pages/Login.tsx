@@ -50,17 +50,17 @@ const Login = () => {
 				<div className="bg-[#1d1d1d80] w-full h-[100dvh] top-0 fixed animate-pulse z-50"></div>
 			}
 			<div className="text-lg md:text-2xl flex flex-col justify-center place-items-center h-screen space-y-8">
-				<form onSubmit={handleLogin} className="w-[80dvw] md:w-[50dvw] border-black border-2 shadow-[8px_8px_black] p-4 md:p-8 bg-beige-200 flex-col flex">
+				<form onSubmit={handleLogin} className="rounded w-[80dvw] md:w-[50dvw] border-black border-2 shadow-[8px_8px_black] p-4 md:p-8 bg-beige-200 flex-col flex">
 					<label htmlFor="userName">Email:</label>
-					<input value={email} onChange={(e) => { setEmail(e.target.value) }} className="border border-black p-2 text-sm md:text-lg mt-3" type="email" required />
+					<input value={email} onChange={(e) => { setEmail(e.target.value) }} className="rounded border border-black p-2 text-sm md:text-lg mt-3" type="email" required />
 
 					<label className="mt-4 flex justify-between place-items-center" htmlFor="password">
 						Password:
 						<EyeIcon verb={showPass} setter={setShowPass} />
 					</label>
-					<input value={password} onChange={(e) => { setPassword(e.target.value) }} className="border border-black p-2 text-sm md:text-lg mt-3" type={showPass} minLength={8} required />
+					<input value={password} onChange={(e) => { setPassword(e.target.value) }} className="rounded border border-black p-2 text-sm md:text-lg mt-3" type={showPass} minLength={8} required />
 
-					<button className="p-1 duration-300 hover:shadow-[0px_0px_black] shadow-[3px_3px_black] mt-5 border-2 border-black" type="submit">Login</button>
+					<button className="rounded p-1 duration-300 hover:shadow-[0px_0px_black] shadow-[3px_3px_black] mt-5 border-2 border-black" type="submit">Login</button>
 					{error && <p className="text-center text-red-600 md:text-xl pt-3">{error}</p>}
 				</form>
 				<p className="text-lg md:text-xl">Dont have an account? <NavLink className="text-blue-800 hover:underline" to="/signup">Sign Up</NavLink></p>

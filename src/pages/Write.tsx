@@ -111,21 +111,21 @@ const Write = () => {
 			<div className="p-6 flex flex-col px-6 lg:px-[20vw] gap-3">
 				<div className="space-y-3 flex flex-col">
 					<h1 className="text-xl md:text-3xl font-semibold">Title:</h1>
-					<span contentEditable onInput={(e) => setBlogTitle(e.currentTarget.innerText)} className="p-1 bg-beige-100 h-auto resize-none focus:outline-none border border-black shadow-[4px_4px_black] md:text-xl md:p-3" />
+					<span contentEditable onInput={(e) => setBlogTitle(e.currentTarget.innerText)} className="rounded p-1 bg-beige-100 h-auto resize-none focus:outline-none border border-black shadow-[4px_4px_black] md:text-xl md:p-3" />
 					<h1 className="text-xl md:text-3xl font-semibold">Description:</h1>
-					<span contentEditable onInput={(e) => setBlogDesc(e.currentTarget.innerText)} className="p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]"></span>
+					<span contentEditable onInput={(e) => setBlogDesc(e.currentTarget.innerText)} className="rounded p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]"></span>
 					<h1 className="text-xl md:text-3xl font-semibold">Blog:</h1>
-					<div className="border-black border bg-beige-100 shadow-[4px_4px_black]">
+					<div className="border-black border bg-beige-100 shadow-[4px_4px_black] rounded overflow-hidden">
 						<ReactQuill formats={formats} modules={modules} className="border-none" theme='snow' value={blogContent} onChange={setBlogContent} />
 					</div>
 				</div>
 
-				<div className="p-2 border border-black shadow-[4px_4px_black] max-h-fit">
+				<div className="py-2 px-5 border border-black shadow-[4px_4px_black] max-h-fit rounded">
 					<div className="flex flex-col">
 						<div className="flex justify-between items-center">
 							<h1 className="text-3xl font-semibold">Options:</h1>
 							<div className="flex gap-3 my-2">
-								<button className="border-2 border-black p-2 text-lg font-bold duration-200 hover:shadow-[4px_4px_black]" onClick={handlePublish}>Publish</button>
+								<button className="rounded border-2 border-black p-2 text-lg font-bold duration-200 hover:shadow-[4px_4px_black]" onClick={handlePublish}>Publish</button>
 							</div>
 						</div>
 						<hr className="border-black my-2" />

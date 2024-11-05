@@ -89,7 +89,7 @@ const Single = () => {
 						</div>
 					</div>
 
-					<div className="flex items-center justify-center bg-black border border-black overflow-hidden aspect-video object-cover">
+					<div className="rounded-lg flex items-center justify-center bg-black border border-black overflow-hidden aspect-video object-cover">
 						<img className='w-full'
 							src={`${baseUrl}/images/${post?.image}`}
 						/>

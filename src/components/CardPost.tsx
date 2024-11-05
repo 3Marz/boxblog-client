@@ -15,8 +15,8 @@ export default function CardPost({ post, className, bodyClassName }: CardPostPro
 	}
 	
 	return (
-		<Link to={`/blog/${post?.id}`} className={`group flex flex-col relative before:absolute before:inset-0 before:bg-doted-bg before:bg-[length:4px_4px] before:bg-beige-400 before:-z-10 ${className}`}>
-			<div className={`flex flex-col h-full bg-beige-300 group-active:-translate-y-2 group-active:-translate-x-2 group-hover:-translate-x-2 duration-75 group-hover:-translate-y-2 ring-black ring-1 ${bodyClassName}`}>
+		<Link to={`/blog/${post?.id}`} className={`group flex flex-col relative before:absolute before:inset-0 before:bg-doted-bg before:bg-[length:4px_4px] before:bg-beige-400 before:-z-10 before:rounded ${className}`}>
+			<div className={`flex rounded overflow-hidden flex-col h-full bg-beige-300 group-active:-translate-y-2 group-active:-translate-x-2 group-hover:-translate-x-2 duration-75 group-hover:-translate-y-2 ring-black ring-1 ${bodyClassName}`}>
 				<div className="aspect-video w-full overflow-hidden bg-black border-b border-black flex place-items-center justify-center items-center">
 					<img className="w-full" src={`${baseUrl}/images/${post?.image}`} alt="" />
 				</div>

@@ -44,7 +44,7 @@ const Navbar = () => {
 			<button onClick={handleMobileNav} className='sm:hidden p-4 active:rotate-45 duration-75'>{ mobileNav ? <IoClose size={32} /> : <GiHamburgerMenu size={28} /> }</button>
 			<div ref={navRef} className='sm:flex sm:flex-row sm:static sm:bg-transparent sm:h-full sm:space-y-0 sm:border-0
 							bg-beige-300 top-14 right-0 h-fit absolute hidden border-l-2 border-b-2 border-black *:p-5
-							flex-col peer-focus:flex' id="navbar-default">
+							flex-col peer-focus:flex rounded-bl' id="navbar-default">
 				{
 					!isLogged ?
 						<>
@@ -59,7 +59,7 @@ const Navbar = () => {
 				}
 				<button className='group z-20 relative active:bg-doted-bg hover:bg-doted-bg bg-size-10 h-full mx-1 px-2 flex justify-center items-center'>
 					<span className='bg-beige-300'>Category</span>
-					<ul className="hidden text-left group-hover:flex group-focus:flex absolute sm:top-12 top-0 right-28 sm:right-auto flex-col bg-beige-100 p-2 border-black border">
+					<ul className="rounded hidden text-left group-hover:flex group-focus:flex absolute sm:top-12 top-0 right-28 sm:right-auto flex-col bg-beige-100 p-2 border-black border">
 						<NavLink onClick={handleMobileNav} className="hover:border-black hover:italic border-transparent border-b" to="/blogs/Art">Art</NavLink>
 						<NavLink onClick={handleMobileNav} className="hover:border-black hover:italic border-transparent border-b" to="/blogs/Science">Science</NavLink>
 						<NavLink onClick={handleMobileNav} className="hover:border-black hover:italic border-transparent border-b" to="/blogs/Tech">Tech</NavLink>
