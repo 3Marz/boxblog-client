@@ -6,6 +6,7 @@ import axios from 'axios'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoClose } from 'react-icons/io5'
 import { baseUrl } from '../config.js'
+import { LuMoon, LuSun } from 'react-icons/lu'
 
 const Navbar = () => {
 
@@ -36,10 +37,32 @@ const Navbar = () => {
 		setMobileNav(!mobileNav)
 	}
 
+	const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
+
+	function handleTheme() {
+		setTheme(theme=='light' ? 'dark' : 'light')
+	}
+
+	useEffect(() => {
+		const storageTheme = localStorage.getItem('theme')
+		if (storageTheme) {
+			if(!document.body.classList.replace(storageTheme, theme)) {
+				document.body.classList.add(storageTheme)
+			}
+			localStorage.setItem("theme", theme)
+		} else {
+			document.body.classList.add("light")
+			localStorage.setItem("theme", "light")
+		}
+	}, [theme])
+	
 	return (
 		<nav className="h-14 z-30 flex place-items-center sticky top-0 bg-beige-300 justify-between border-b-2 border-border-color">
-			<div className="ml-2">
+			<div className="ml-2 flex items-center space-x-2">
 				<NavLink className="font-bold text-2xl" to="/">[BoxBlog]</NavLink>
+				<div className='cursor-pointer active:rotate-45 duration-75' onClick={handleTheme}>
+					{theme == 'light' ? <LuSun size={24}/> : <LuMoon size={24}/>}
+				</div>
 			</div>
 			<button onClick={handleMobileNav} className='sm:hidden p-4 active:rotate-45 duration-75'>{mobileNav ? <IoClose size={32} /> : <GiHamburgerMenu size={28} />}</button>
 			<div ref={navRef} className='sm:flex sm:flex-row sm:static sm:bg-transparent sm:h-full sm:space-y-0 sm:border-0
