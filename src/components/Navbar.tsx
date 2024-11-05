@@ -48,7 +48,7 @@ const Navbar = () => {
 				{
 					!isLogged ?
 						<>
-							<NavButton value="Signup" to="/signup" />
+							<NavButton className='font-bold' value="Signup" to="/signup" />
 							<NavButton value="Login" to="/login" />
 						</>
 						:
@@ -67,7 +67,7 @@ const Navbar = () => {
 						<NavLink onClick={handleMobileNav} className="hover:border-black hover:italic border-transparent border-b" to="/blogs/Food">Food</NavLink>
 					</ul>
 				</button>
-				<NavButton onClick={handleMobileNav} value="Write" to="/write" className="font-bold" />
+				<NavButton onClick={handleMobileNav} value="Write" to="/write" />
 			</div>
 		</nav>
 	)
