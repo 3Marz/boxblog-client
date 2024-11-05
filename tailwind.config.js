@@ -8,7 +8,7 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
-				'doted-bg': 'radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px)',
+				'doted-bg': 'radial-gradient(circle, var(--border-color) 1px, rgba(0, 0, 0, 0) 1px)',
 			},
 			colors: {
 				"beige": {

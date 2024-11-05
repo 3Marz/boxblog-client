@@ -17,13 +17,13 @@
 	background-color: var(--beige-300);
 }
 .dark {
-	--beige-100: #646260;
-	--beige-200: #494643;
-	--beige-300: #312d28;
-	--beige-400: #161412;
-	--beige-500: #0b0a0a;
+	--beige-100: #fafafa;
+	--beige-200: #27272a; 
+	--beige-300: #18181b;
+	--beige-400: #3f3f46;
+	--beige-500: #3e3e41;
 
-	--border-color: white;
+	--border-color: #6e6e6e;
 
 	--text-color: white;
 
@@ -34,10 +34,6 @@
 
 .bg-size-10 {
 	background-size: 8px 8px;
-}
-
-.button {
-  @apply border border-black p-1 duration-200 hover:shadow-[4px_4px_black];
 }
 
 .line-break {
@@ -53,13 +49,13 @@ input[type="radio"] + label:before {
   margin-right: 10px;
   width: 15px;
   height: 15px;
-  outline: 2px solid;
+  outline: 2px solid var(--border-color);
   border-radius: 20px;
 }
 
 input[type="radio"]:checked + label:before {
-  background-color: black;
-  border: 2px solid #f4dfc8;
+  background-color: var(--border-color);
+  border: 2px solid var(--beige-300);
 }
 
 @media (min-width: 641px) {
