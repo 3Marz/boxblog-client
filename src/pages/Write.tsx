@@ -130,8 +130,14 @@ const Write = () => {
 						</div>
 						<hr className="border-border-color my-2" />
 						<form onSubmit={(e) => e.preventDefault()} encType="multipart/form-data">
-							<label className="text-2xl font-bold" htmlFor="image">Upload cover image:</label>
-							<input ref={inputField} className="block border-2 border-border-color border-dashed rounded w-fit text-border-color text-sm text-gray-600 file:mr-4 file:py-2 file:p-2 file:border-none file:text-sm file:not-italic italic file:bg-transparent file:border-border-color file:text-text-color file:hover:underline" type="file" name="image" id="image" accept="image/*" />
+							<h2 className="text-2xl font-bold">Upload cover image:</h2>
+							<label htmlFor='image' className='cursor-pointer text-border-color hover:underline rounded inline-block border-2 border-border-color border-dashed p-2 my-1 text-sm italic' id='file-span'>Browse...</label>
+							<input ref={inputField} onChange={(e)=>{
+								const filespan = document.getElementById("file-span"); 
+								if(e.currentTarget.files && filespan) 
+									 filespan.innerText = e.currentTarget.files[0].name
+							}} 
+									className="hidden" type="file" name="image" id="image" accept="image/*" />
 						</form>
 					</div>
 					<hr className="border-border-color my-2" />
