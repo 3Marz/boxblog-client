@@ -99,9 +99,9 @@ const Single = () => {
 
 				<div className="space-y-3">
 					<div className="max-w-none prose prose-sm *:text-text-color prose-headings:my-2 prose-em:text-text-color prose-strong:text-text-color 
-									prose-p:my-2 prose-li:my-1 md:prose-base prose-a:text-blue-700
-									prose-li:ml-8 prose-pre:bg-zinc-800
-									prose-blockquote:border-gray-600">
+									prose-p:my-2 prose-li:my-1 md:prose-base prose-a:text-blue-700 marker:text-border-color
+									prose-li:ml-8 prose-pre:bg-zinc-800 prose-pre:text-white
+									prose-blockquote:border-beige-500">
 						{post && parse(post?.body)}
 					</div>
 				</div>

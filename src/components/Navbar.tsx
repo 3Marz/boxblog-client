@@ -83,11 +83,11 @@ const Navbar = () => {
 				<button className='group z-20 relative active:bg-doted-bg hover:bg-doted-bg bg-size-10 h-full mx-1 px-2 flex justify-center items-center'>
 					<span className='bg-beige-300'>Category</span>
 					<ul className="rounded hidden text-left group-hover:flex group-focus:flex absolute sm:top-12 top-0 right-28 sm:right-auto flex-col bg-beige-100 p-2 border-border-color border">
-						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b" to="/blogs/Art">Art</NavLink>
-						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b" to="/blogs/Science">Science</NavLink>
-						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b" to="/blogs/Tech">Tech</NavLink>
-						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b" to="/blogs/Cinema">Cinema</NavLink>
-						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b" to="/blogs/Food">Food</NavLink>
+						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b text-black" to="/blogs/Art">Art</NavLink>
+						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b text-black" to="/blogs/Science">Science</NavLink>
+						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b text-black" to="/blogs/Tech">Tech</NavLink>
+						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b text-black" to="/blogs/Cinema">Cinema</NavLink>
+						<NavLink onClick={handleMobileNav} className="hover:border-border-color hover:italic border-transparent border-b text-black" to="/blogs/Food">Food</NavLink>
 					</ul>
 				</button>
 				<NavButton onClick={handleMobileNav} value="Write" to="/write" />

@@ -108,33 +108,33 @@ const Write = () => {
 			{loading &&
 				<div className="bg-[#1d1d1d80] w-full h-[100dvh] top-0 fixed animate-pulse z-50"></div>
 			}
-			<div className="p-6 flex flex-col px-6 lg:px-[20vw] gap-3">
+			<div className="p-6 flex flex-col px-6 lg:px-[20vw] gap-6">
 				<div className="space-y-3 flex flex-col">
 					<h1 className="text-xl md:text-3xl font-semibold">Title:</h1>
-					<span contentEditable onInput={(e) => setBlogTitle(e.currentTarget.innerText)} className="rounded p-1 bg-beige-100 h-auto resize-none focus:outline-none border border-black shadow-[4px_4px_black] md:text-xl md:p-3" />
+					<span contentEditable onInput={(e) => setBlogTitle(e.currentTarget.innerText)} className="rounded p-1 text-black bg-beige-100 h-auto resize-none focus:outline-none border-2 border-border-color shadow-[4px_4px] shadow-border-color md:text-xl md:p-3" />
 					<h1 className="text-xl md:text-3xl font-semibold">Description:</h1>
-					<span contentEditable onInput={(e) => setBlogDesc(e.currentTarget.innerText)} className="rounded p-1 bg-beige-100 focus:outline-none border border-black shadow-[4px_4px_black]"></span>
+					<span contentEditable onInput={(e) => setBlogDesc(e.currentTarget.innerText)} className="rounded p-1 text-black bg-beige-100 focus:outline-none border-2 border-border-color shadow-[4px_4px] shadow-border-color"></span>
 					<h1 className="text-xl md:text-3xl font-semibold">Blog:</h1>
-					<div className="border-black border bg-beige-100 shadow-[4px_4px_black] rounded">
-						<ReactQuill formats={formats} modules={modules} className="border-none" theme='snow' value={blogContent} onChange={setBlogContent} />
+					<div className="border-border-color border-2 bg-beige-100 shadow-[4px_4px] shadow-border-color rounded text-black">
+						<ReactQuill formats={formats} modules={modules} className="border-none *:rounded" theme='snow' value={blogContent} onChange={setBlogContent} />
 					</div>
 				</div>
 
-				<div className="py-2 px-5 border border-black shadow-[4px_4px_black] max-h-fit rounded">
+				<div className="py-3 px-5 border border-border-color shadow-[4px_4px] shadow-border-color max-h-fit rounded">
 					<div className="flex flex-col">
 						<div className="flex justify-between items-center">
 							<h1 className="text-3xl font-semibold">Options:</h1>
 							<div className="flex gap-3 my-2">
-								<button className="rounded border-2 border-black p-2 text-lg font-bold duration-200 hover:shadow-[4px_4px_black]" onClick={handlePublish}>Publish</button>
+								<button className="rounded border-2 border-border-color p-2 text-lg font-bold duration-200 hover:shadow-border-color hover:shadow-[4px_4px]" onClick={handlePublish}>Publish</button>
 							</div>
 						</div>
-						<hr className="border-black my-2" />
+						<hr className="border-border-color my-2" />
 						<form onSubmit={(e) => e.preventDefault()} encType="multipart/form-data">
 							<label className="text-2xl font-bold" htmlFor="image">Upload cover image:</label>
-							<input ref={inputField} className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:p-2 file:border-0 file:text-sm file:not-italic italic file:bg-transparent file:border-black file:text-black hover:file:underline" type="file" name="image" id="image" accept="image/*" />
+							<input ref={inputField} className="block border-2 border-border-color border-dashed rounded w-fit text-border-color text-sm text-gray-600 file:mr-4 file:py-2 file:p-2 file:border-none file:text-sm file:not-italic italic file:bg-transparent file:border-border-color file:text-text-color file:hover:underline" type="file" name="image" id="image" accept="image/*" />
 						</form>
 					</div>
-					<hr className="border-black my-2" />
+					<hr className="border-border-color my-2" />
 
 					<div className="flex flex-col">
 						<h1 className="text-2xl font-semibold">Category</h1>

@@ -51,7 +51,7 @@ export default function UserProfile() {
 				<h1 className="text-2xl md:text-4xl font-bold">{user.username}</h1>
 				<h3 className="text-lg md:text-xl font-thin">Joined At {new Date(user.createdAt).toDateString()}</h3>
 			</div>
-			<hr className="border-black border-dashed border-2" />
+			<hr className="border-border-color border-dashed border-2" />
 			<div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
 				{posts.map((post, i) => {
 					return <CardPost key={i} post={post} />
